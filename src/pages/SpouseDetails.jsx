@@ -6,7 +6,7 @@ const SpouseDetails = () => {
       <h3 className="text-xl font-semibold text-white mb-4">Spouse Details</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="spouse-first-name">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="spouse-first-name">
             First Name
           </label>
           <input
@@ -17,7 +17,7 @@ const SpouseDetails = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="spouse-surname">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="spouse-surname">
             Surname
           </label>
           <input
@@ -28,7 +28,7 @@ const SpouseDetails = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="spouse-id">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="spouse-id">
             ID Number
           </label>
           <input
@@ -39,7 +39,7 @@ const SpouseDetails = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="spouse-cellphone">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="spouse-cellphone">
             Cellphone No.
           </label>
           <input

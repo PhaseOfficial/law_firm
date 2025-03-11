@@ -57,26 +57,26 @@ function App() {
     <div className="min-h-screen bg-gray-900 text-gray-200" onMouseMove={handleMouseMove} style={{
       background: `radial-gradient(
         at ${position.x}% ${position.y}%,
-rgb(6, 24, 73),
-rgb(3, 1, 24)
+rgb(214, 210, 233),
+rgb(238, 225, 225)
       )`,
     }}>
       {/* Logo and Title */}
       <div className="flex items-center space-x-2 justify-center p-4" >
-        <img src={Logo} alt="Logo 1" className="h-15" />
-        <span className="font-bold text-xl">SpaceBucks</span>
+        <img src={Logo} alt="Logo 1" className="h-35" />
+        
       </div>
 
       {/* Progress Bar */}
       <div className="w-full bg-gray-700 rounded-full h-2.5 mb-6 mx-4">
         <div
-          className="bg-blue-600 h-2.5 rounded-full"
+          className="bg-red-600 h-2.5 rounded-full"
           style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
         ></div>
       </div>
 
       {/* Current Step Label */}
-      <div className="text-center text-sm text-gray-400 mb-4">
+      <div className="text-center text-sm text-gray-800 mb-4">
         Step {currentStep + 1} of {steps.length}: {steps[currentStep].label}
       </div>
 
@@ -109,7 +109,7 @@ rgb(3, 1, 24)
           className={`px-4 py-2 ${
             currentStep === 0
               ? "bg-gray-500 cursor-not-allowed"
-              : "bg-blue-500 hover:bg-blue-600"
+              : "bg-red-500 hover:bg-red-600"
           } text-white rounded`}
         >
           Previous
@@ -117,7 +117,7 @@ rgb(3, 1, 24)
         {currentStep < steps.length - 1 ? (
           <button
             onClick={handleNext}
-            className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded"
+            className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded"
           >
             Next
           </button>

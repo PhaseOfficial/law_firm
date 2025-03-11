@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { HashRouter, Routes, Route, NavLink, useNavigate } from "react-router-dom";
+import { HashRouter, Routes, Route, useNavigate } from "react-router-dom";
 import ClientDetails from "./pages/ClientDetails";
 import SpouseDetails from "./pages/SpouseDetails";
 import NextOfKinDetails from "./pages/NextOfKinDetails";
 import BusinessDetails from "./pages/BusinessDetails";
 import LoanDetails from "./pages/LoanDetails";
 import BusinessReferees from "./pages/BusinessReferees";
-import SupplierCreditReferences from "./pages/SupplierCreditReferences";
 import BankingDetails from "./pages/BankingDetails";
 import BranchSelection from "./pages/BranchSelection";
 import Declaration from "./pages/Declaration";
@@ -14,13 +13,12 @@ import "./index.css"; // Ensure your Tailwind CSS file is imported
 import Logo from "../src/assets/spacebucks submark.png";
 
 const steps = [
-  { path: "/client-details", label: "Client Details" },
+  { path: "/client-details", label: "Principal Member’s Details" },
   { path: "/spouse-details", label: "Spouse Details" },
   { path: "/next-of-kin-details", label: "Next of Kin Details" },
-  { path: "/business-details", label: "Business Details" },
-  { path: "/loan-details", label: "Loan Details" },
-  { path: "/business-referees", label: "Business Referees" },
-  { path: "/supplier-credit-references", label: "Supplier Credit References" },
+  { path: "/business-details", label: "Employer's Details" },
+  { path: "/loan-details", label: "Packages" },
+  { path: "/business-referees", label: "Family or Other Dependants Details" },
   { path: "/banking-details", label: "Banking Details" },
   { path: "/branch-selection", label: "Branch Selection" },
   { path: "/declaration", label: "Declaration" },
@@ -68,7 +66,7 @@ rgb(238, 225, 225)
       </div>
 
       {/* Progress Bar */}
-      <div className="w-full bg-gray-700 rounded-full h-2.5 mb-6 mx-4">
+      <div className="w-full max-w-4xl mx-auto bg-gray-700 rounded-full h-2.5 mb-6">
         <div
           className="bg-red-600 h-2.5 rounded-full"
           style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
@@ -89,10 +87,6 @@ rgb(238, 225, 225)
           <Route path="/business-details" element={<BusinessDetails />} />
           <Route path="/loan-details" element={<LoanDetails />} />
           <Route path="/business-referees" element={<BusinessReferees />} />
-          <Route
-            path="/supplier-credit-references"
-            element={<SupplierCreditReferences />}
-          />
           <Route path="/banking-details" element={<BankingDetails />} />
           <Route path="/branch-selection" element={<BranchSelection />} />
           <Route path="/declaration" element={<Declaration />} />

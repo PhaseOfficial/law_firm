@@ -3,87 +3,76 @@ import React from "react";
 const BusinessDetails = () => {
   return (
     <div className="mb-6">
-      <h3 className="text-xl font-semibold text-white mb-4">Business Details</h3>
+      <h3 className="text-xl font-semibold text-gray-800 mb-4">Employer's Details</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="business-name">
-            Name of Business
+          <label className="block text-sm font-medium text-gray-700" htmlFor="employer-name">
+            Name of Employer
           </label>
           <input
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
             type="text"
-            name="business-name"
-            id="business-name"
+            name="employer-name"
+            id="employer-name"
             required
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="business-type">
-            Business Type
+          <label className="block text-sm font-medium text-gray-700" htmlFor="ec-number">
+            E C Number
           </label>
           <input
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
             type="text"
-            name="business-type"
-            id="business-type"
+            name="ec-number"
+            id="ec-number"
             required
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="business-period">
-            Period in Current Business
+          <label className="block text-sm font-medium text-gray-700" htmlFor="occupation">
+            Occupation
           </label>
           <input
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
             type="text"
-            name="business-period"
-            id="business-period"
+            name="occupation"
+            id="occupation"
             required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="previous-business">
-            Previous Business Activities
-          </label>
-          <input
-            className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
-            type="text"
-            name="previous-business"
-            id="previous-business"
           />
         </div>
         <div className="col-span-2">
-          <label className="block text-sm font-medium text-gray-300" htmlFor="business-address">
-            Business Address
+          <label className="block text-sm font-medium text-gray-700" htmlFor="employer-address">
+            Employer's Physical Address
           </label>
           <input
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
             type="text"
-            name="business-address"
-            id="business-address"
+            name="employer-address"
+            id="employer-address"
             required
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="business-phone">
-            Business Telephone No.
+          <label className="block text-sm font-medium text-gray-700" htmlFor="employer-phone">
+            Telephone No.
           </label>
           <input
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
             type="tel"
-            name="business-phone"
-            id="business-phone"
+            name="employer-phone"
+            id="employer-phone"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="business-email">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="employer-email">
             Email Address
           </label>
           <input
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
             type="email"
-            name="business-email"
-            id="business-email"
+            name="employer-email"
+            id="employer-email"
           />
         </div>
       </div>

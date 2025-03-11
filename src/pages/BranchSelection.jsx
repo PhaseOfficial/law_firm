@@ -3,7 +3,7 @@ import React from "react";
 const BranchSelection = () => {
   return (
     <div className="mb-6">
-      <label className="block text-sm font-medium text-gray-300" htmlFor="branch">
+      <label className="block text-sm font-medium text-gray-700" htmlFor="branch">
         Select Branch Nearest to You
       </label>
       <select

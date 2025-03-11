@@ -3,7 +3,7 @@ import React from "react";
 const SpouseDetails = () => {
   return (
     <div className="mb-6">
-      <h3 className="text-xl font-semibold text-white mb-4">Spouse Details</h3>
+      <h3 className="text-xl font-semibold text-gray-800 mb-4">Spouse Details</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700" htmlFor="spouse-first-name">

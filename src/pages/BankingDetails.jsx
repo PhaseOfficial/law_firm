@@ -6,7 +6,7 @@ const BankingDetails = () => {
       <h3 className="text-xl font-semibold text-gray-800 mb-4">Banking Details</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="bank-name">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="bank-name">
             Bank Name
           </label>
           <input
@@ -18,7 +18,7 @@ const BankingDetails = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="account-type">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="account-type">
             Type of Account
           </label>
           <select
@@ -33,7 +33,7 @@ const BankingDetails = () => {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-300" htmlFor="account-number">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="account-number">
             Account No.
           </label>
           <input

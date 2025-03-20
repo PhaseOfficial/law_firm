@@ -1,18 +1,34 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import supabase from "../supabase/supabaseClient";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Add your login logic here
-    console.log("Logging in with:", email, password);
-    navigate("/form-steps"); // Redirect to form steps after login
+    setError("");
+
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      // Redirect to form steps after successful login
+      navigate("/form-steps");
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -20,6 +36,7 @@ const LoginPage = () => {
       <Header />
       <main className="p-6 max-w-md mx-auto">
         <h2 className="text-2xl font-bold mb-6">Login</h2>
+        {error && <p className="text-red-500 mb-4">{error}</p>}
         <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700" htmlFor="email">
@@ -57,7 +74,7 @@ const LoginPage = () => {
         <p className="mt-4 text-center">
           Don't have an account?{" "}
           <Link to="/register" className="text-blue-500 hover:underline">
-            Register
+            Contact Administrator
           </Link>
         </p>
       </main>

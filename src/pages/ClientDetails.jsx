@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 
-const ClientDetails = () => {
+const ClientDetails = ({ formData, updateFormData }) => {
+  // Initialize state with formData from parent
+  const [clientDetails, setClientDetails] = useState(formData.clientDetails || {});
+
+  // Handle form field changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const updatedDetails = { ...clientDetails, [name]: value };
+    setClientDetails(updatedDetails);
+    updateFormData("clientDetails", updatedDetails); // Update parent state
+  };
+
   return (
     <div className="mb-6">
-      <h3 className="text-xl font-semibold text-gray-800 mb-4">Principal Member’s Details</h3>
+      <h3 className="text-xl font-semibold text-gray-800 mb-4">
+        Principal Member’s Details
+      </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block text-sm font-medium text-gray-700" htmlFor="title">
@@ -13,6 +26,8 @@ const ClientDetails = () => {
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
             name="title"
             id="title"
+            value={clientDetails.title || ""}
+            onChange={handleChange}
             required
           >
             <option value="">Select</option>
@@ -33,6 +48,8 @@ const ClientDetails = () => {
             type="text"
             name="surname"
             id="surname"
+            value={clientDetails.surname || ""}
+            onChange={handleChange}
             required
           />
         </div>
@@ -45,6 +62,8 @@ const ClientDetails = () => {
             type="text"
             name="name"
             id="name"
+            value={clientDetails.name || ""}
+            onChange={handleChange}
             required
           />
         </div>
@@ -56,6 +75,8 @@ const ClientDetails = () => {
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
             name="sex"
             id="sex"
+            value={clientDetails.sex || ""}
+            onChange={handleChange}
             required
           >
             <option value="">Select</option>
@@ -72,6 +93,8 @@ const ClientDetails = () => {
             type="date"
             name="dob"
             id="dob"
+            value={clientDetails.dob || ""}
+            onChange={handleChange}
             required
           />
         </div>
@@ -82,8 +105,10 @@ const ClientDetails = () => {
           <input
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
             type="text"
-            name="id-number"
+            name="id_number"
             id="id-number"
+            value={clientDetails.id_number || ""}
+            onChange={handleChange}
             required
           />
         </div>
@@ -96,70 +121,8 @@ const ClientDetails = () => {
             type="text"
             name="address"
             id="address"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="marital-status">
-            Marital Status
-          </label>
-          <select
-            className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
-            name="marital-status"
-            id="marital-status"
-            required
-          >
-            <option value="">Select</option>
-            <option value="Single">Single</option>
-            <option value="Married">Married</option>
-          </select>
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="phone">
-            Telephone/Cellphone
-          </label>
-          <input
-            className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
-            type="tel"
-            name="phone"
-            id="phone"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="email">
-            Email Address
-          </label>
-          <input
-            className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
-            type="email"
-            name="email"
-            id="email"
-            required
-          />
-        </div>
-        {/* Additional fields based on PDF */}
-        <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="nationality">
-            Nationality
-          </label>
-          <input
-            className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
-            type="text"
-            name="nationality"
-            id="nationality"
-            required
-          />
-        </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="occupation">
-            Occupation
-          </label>
-          <input
-            className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
-            type="text"
-            name="occupation"
-            id="occupation"
+            value={clientDetails.address || ""}
+            onChange={handleChange}
             required
           />
         </div>

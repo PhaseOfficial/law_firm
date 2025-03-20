@@ -1,6 +1,6 @@
 import React from "react";
 
-const Declaration = () => {
+const Declaration = ({ formData, updateFormData }) => {
   return (
     <div className="mb-6">
       <h3 className="text-xl font-semibold text-gray-800 mb-4">Declaration</h3>
@@ -15,6 +15,8 @@ const Declaration = () => {
         type="text"
         name="signature"
         id="signature"
+        value={formData.signature || ""}
+        onChange={(e) => updateFormData("signature", e.target.value)}
         placeholder="Sign Document"
         required
       />

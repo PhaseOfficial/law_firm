@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 
-const LoanDetails = () => {
+const LoanDetails = ({ formData, updateFormData }) => {
+  // Initialize state with formData from parent
+  const [loanDetails, setLoanDetails] = useState(formData.loanDetails || {});
+
+  // Handle form field changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const updatedDetails = { ...loanDetails, [name]: value };
+    setLoanDetails(updatedDetails);
+    updateFormData("loanDetails", updatedDetails); // Update parent state
+  };
+
   return (
     <div className="mb-6">
       <h3 className="text-xl font-semibold text-gray-800 mb-4">Packages</h3>
@@ -13,6 +24,8 @@ const LoanDetails = () => {
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
             name="plan"
             id="plan"
+            value={loanDetails.plan || ""}
+            onChange={handleChange}
             required
           >
             <option value="">Select</option>
@@ -23,13 +36,15 @@ const LoanDetails = () => {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="basic-cover-limit">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="basic_cover_limit">
             BASIC COVER LIMIT
           </label>
           <select
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
-            name="basic-cover-limit"
-            id="basic-cover-limit"
+            name="basic_cover_limit"
+            id="basic_cover_limit"
+            value={loanDetails.basic_cover_limit || ""}
+            onChange={handleChange}
             required
           >
             <option value="">Select</option>
@@ -40,13 +55,15 @@ const LoanDetails = () => {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="individual-monthly">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="individual_monthly">
             INDIVIDUAL MONTHLY
           </label>
           <select
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
-            name="individual-monthly"
-            id="individual-monthly"
+            name="individual_monthly"
+            id="individual_monthly"
+            value={loanDetails.individual_monthly || ""}
+            onChange={handleChange}
             required
           >
             <option value="">Select</option>
@@ -57,13 +74,15 @@ const LoanDetails = () => {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700" htmlFor="family-pack">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="family_pack">
             FAMILY PACK
           </label>
           <select
             className="mt-1 p-2 w-full bg-gray-700 border border-gray-600 rounded-md text-white"
-            name="family-pack"
-            id="family-pack"
+            name="family_pack"
+            id="family_pack"
+            value={loanDetails.family_pack || ""}
+            onChange={handleChange}
             required
           >
             <option value="">Select</option>

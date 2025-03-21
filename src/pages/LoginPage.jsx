@@ -15,17 +15,45 @@ const LoginPage = () => {
     setError("");
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      const { data: user, error: loginError } = await supabase.auth.signInWithPassword({
         email,
         password,
       });
 
-      if (error) {
-        throw error;
+      if (loginError) {
+        throw loginError;
       }
 
-      // Redirect to form steps after successful login
-      navigate("/form-steps");
+      const userId = user?.user?.id;
+      if (!userId) {
+        throw new Error("User ID not found.");
+      }
+
+     // Fetch user role from Supabase
+     const { data: userRole, error: roleError } = await supabase
+        .from("user_roles")
+        .select("roles(name)")
+        .eq("user_id", userId)
+        .single();
+
+      if (roleError) {
+        throw roleError;
+      }
+
+      const role = userRole?.roles?.name;
+
+      // Redirect user based on role
+      if (role === "Admin") {
+        navigate("/admin");
+      } else if (role === "Agent") {
+        navigate("/form-steps");
+      } else if (role === "Accountant") {
+        navigate("/accountant");
+      } else {
+        alert("You dont have permission ");
+        navigate("/");
+      }
+
     } catch (error) {
       setError(error.message);
     }

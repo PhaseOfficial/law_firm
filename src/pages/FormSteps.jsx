@@ -204,7 +204,7 @@ const FormSteps = () => {
       }
 
       alert("Form submitted successfully!");
-      navigate("/");
+      navigate("/form-steps");
     } catch (error) {
       console.error("Error submitting form:", error);
       alert(`Submission failed: ${error.message}\nDetails: ${JSON.stringify(error.details)}`);

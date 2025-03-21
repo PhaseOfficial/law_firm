@@ -9,17 +9,13 @@ export default function Header() {
     return (
         <nav className="sticky top-0 w-full bg-navigation bg-opacity-40 text-primary py-4 px-6 backdrop-blur-md z-10">
             <div className="container mx-auto flex items-center justify-between">
-                <h1 className="text-2xl font-bold"><img src={mysite} alt='logo' className="w-32 "/></h1>
-
+            <a href="/"><img src={mysite} alt='logo' className="w-32 "/></a>
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-6">
                     <a href="/" className="hover:text-white">Home</a>
-                    <Link to="/Store" className="hover:text-white">Shop</Link>
-                    <a href="https://www.redcupseries.co.zw/#Services" className="hover:text-white">Services</a>
-                    <a href="https://www.redcupseries.co.zw/#About" className="hover:text-white">About</a>
-                    <a href="https://www.redcupseries.co.zw/#Contact" className="hover:text-white">Contact</a>
-                    <a href="https://www.redcupseries.co.zw/#Comingsoon" className="hover:text-white">Children STEM Books</a>
-                    <Link to="/Games" className="hover:text-white">Games</Link>
+                    <a href="" className="hover:text-white">Services</a>
+                    <a href="" className="hover:text-white">About</a>
+                    <a href="" className="hover:text-white">Contact</a>
                     
                 </div>
 
@@ -37,12 +33,10 @@ export default function Header() {
             {isOpen && (
                 <div className="md:hidden bg-navigation bg-opacity-60 text-primary mt-2 py-4 rounded-lg shadow-lg">
                     <a href="/" className="block px-4 py-2 hover:bg-white/70">Home</a>
-                    <a href="https://www.redcupseries.co.zw/#Comingsoon" className="block px-4 py-2 hover:bg-white/70">Shop</a>
-                    <a href="https://www.redcupseries.co.zw/#Services" className="block px-4 py-2 hover:bg-white/70">Services</a>
-                    <a href="https://www.redcupseries.co.zw/#About" className="block px-4 py-2 hover:bg-white/70">About</a>
-                    <a href="https://www.redcupseries.co.zw/#Contact" className="block px-4 py-2 hover:bg-white/70">Contact</a>
-                    <a href="https://www.redcupseries.co.zw/#Comingsoon" className="block px-4 py-2 hover:bg-white/70">Children STEM Books</a>
-                    <Link to="/Games" className="block px-4 py-2 hover:bg-white/70">Games</Link>
+                    <a href="" className="block px-4 py-2 hover:bg-white/70">Services</a>
+                    <a href="" className="block px-4 py-2 hover:bg-white/70">About</a>
+                    <a href="" className="block px-4 py-2 hover:bg-white/70">Contact</a>
+      
                 </div>
             )}
         </nav>

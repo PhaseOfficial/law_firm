@@ -34,7 +34,7 @@ const LoginPage = () => {
         .from("user_roles")
         .select("roles(name)")
         .eq("user_id", userId)
-        .single();
+        .maybeSingle();
 
       if (roleError) {
         throw roleError;

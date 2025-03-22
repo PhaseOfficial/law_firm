@@ -9,7 +9,9 @@ export default function Header() {
     return (
         <nav className="sticky top-0 w-full bg-navigation bg-opacity-40 text-primary py-4 px-6 backdrop-blur-md z-10">
             <div className="container mx-auto flex items-center justify-between">
-            <a href="/"><img src={mysite} alt='logo' className="w-32 "/></a>
+            <Link to="/">
+  <img src={mysite} alt="logo" className="w-32" />
+</Link>
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-6">
                     <a href="/" className="hover:text-white">Home</a>

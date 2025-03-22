@@ -109,6 +109,7 @@ const ViewDataForm = () => {
                         Object.keys(tables[currentTable][0]).map((column) => (
                           <th key={column} className="text-left pl-5 text-base font-medium leading-none text-gray-700">{column}</th>
                         ))}
+                      <th className="text-left pl-5 text-base font-medium leading-none text-gray-700">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -117,6 +118,13 @@ const ViewDataForm = () => {
                         {Object.values(item).map((value, idx) => (
                           <td key={idx} className="pl-5 text-gray-700">{value}</td>
                         ))}
+                        <td className="pl-5">
+                          <div className="flex items-center space-x-2">
+                            <button className="text-sm text-gray-600 py-2 px-4 bg-gray-100 rounded hover:bg-gray-200">View</button>
+                            <button className="text-sm text-blue-600 py-2 px-4 bg-gray-100 rounded hover:bg-gray-200">Edit</button>
+                            <button className="text-sm text-red-600 py-2 px-4 bg-gray-100 rounded hover:bg-gray-200">Delete</button>
+                          </div>
+                        </td>
                       </tr>
                     ))}
                   </tbody>
@@ -129,6 +137,21 @@ const ViewDataForm = () => {
       <Footer />
     </div>
   );
+};
+
+// Dropdown function
+const dropdownFunction = (element) => {
+  const dropdowns = document.getElementsByClassName("dropdown-content");
+  let list = element.parentElement.parentElement.getElementsByClassName(
+    "dropdown-content"
+  )[0];
+  list.classList.add("target");
+  for (let i = 0; i < dropdowns.length; i++) {
+    if (!dropdowns[i].classList.contains("target")) {
+      dropdowns[i].classList.add("hidden");
+    }
+  }
+  list.classList.toggle("hidden");
 };
 
 export default ViewDataForm;

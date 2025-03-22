@@ -220,14 +220,8 @@ const FormSteps = () => {
 
   return (
     <div
-      className="min-h-screen bg-gray-900 text-gray-200"
-      style={{
-        background: `radial-gradient(
-          at ${position.x}% ${position.y}%,
-          rgb(214, 210, 233),
-          rgb(238, 225, 225)
-        )`
-      }}
+      className="min-h-screen bg-gray-200 text-gray-200"
+      
     >
       {/* Logo */}
       <div className="flex items-center space-x-2 justify-center p-4">

@@ -230,7 +230,7 @@ const FormSteps = () => {
     >
       {/* Logo */}
       <div className="flex items-center space-x-2 justify-center p-4">
-        <img src={Logo} alt="Logo" className="h-20" />
+        <a href="/"><img src={Logo} alt='logo' className="w-32 "/></a>
       </div>
 
       {/* Progress Bar */}

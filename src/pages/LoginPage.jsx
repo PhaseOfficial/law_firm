@@ -50,12 +50,12 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-900">
+    <div className="min-h-screen bg-gray-200  text-gray-900">
       <Header />
-      <main className="p-6 max-w-md mx-auto">
+      <main className="p-6 max-w-md mx-auto mb-20">
         <h2 className="text-2xl font-bold mb-6">Login</h2>
         {error && <p className="text-red-500 mb-4">{error}</p>}
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4 ">
           <div>
             <label className="block text-sm font-medium text-gray-700" htmlFor="email">
               Email

@@ -5,6 +5,8 @@ import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import FormSteps from "./pages/FormSteps";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AdminPage from "./pages/AdminPage";
+import ViewDataForm from "./pages/ViewDataForm";
 
 const App = () => {
   return (
@@ -18,7 +20,8 @@ const App = () => {
         <Route element={<ProtectedRoute />}>
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/form-steps/*" element={<FormSteps />} />
-   
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/view-data" element={<ViewDataForm />} />
         </Route>
 
         {/* Redirect unknown paths to HomePage */}

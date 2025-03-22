@@ -11,6 +11,7 @@ import BankingDetails from "../pages/BankingDetails";
 import BranchSelection from "../pages/BranchSelection";
 import Declaration from "../pages/Declaration";
 import Logo from "../assets/spacebucks submark.png";
+import { Link } from 'react-router-dom';
 
 const FormSteps = () => {
   const [currentStep, setCurrentStep] = useState(0);

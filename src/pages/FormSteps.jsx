@@ -231,7 +231,7 @@ const FormSteps = () => {
       {/* Logo */}
       <div className="flex items-center space-x-2 justify-center p-4">
       <Link to="/">
-  <img src={mysite} alt="logo" className="w-32" />
+  <img src={Logo} alt="logo" className="w-32" />
 </Link>
       </div>
 

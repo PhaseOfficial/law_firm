@@ -85,6 +85,35 @@ const AdminPage = () => {
     }
   };
 
+  // Handle deleting a row
+  const handleDelete = async (id) => {
+    try {
+      const { error } = await supabase
+        .from(currentTable)
+        .delete()
+        .eq("id", id); // Delete the row with the matching ID
+
+      if (error) {
+        throw error;
+      }
+
+      // Update the local state by removing the deleted row
+      setTables((prev) => ({
+        ...prev,
+        [currentTable]: prev[currentTable].filter((item) => item.id !== id),
+      }));
+    } catch (error) {
+      console.error("Error deleting data:", error);
+    }
+  };
+
+  // Confirm before deleting a row
+  const confirmDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this row?")) {
+      handleDelete(id); // Proceed with deletion if confirmed
+    }
+  };
+
   // Handle input changes in the edit form
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -174,7 +203,7 @@ const AdminPage = () => {
                           </td>
                         ))}
                         <td className="pl-5">
-                          <div className="flex items-center">
+                          <div className="flex items-center space-x-2">
                             {editId === item.id ? (
                               <button
                                 onClick={() => handleSave(item.id)}
@@ -183,12 +212,20 @@ const AdminPage = () => {
                                 Save
                               </button>
                             ) : (
-                              <button
-                                onClick={() => handleEdit(item.id)}
-                                className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded"
-                              >
-                                Edit
-                              </button>
+                              <>
+                                <button
+                                  onClick={() => handleEdit(item.id)}
+                                  className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded"
+                                >
+                                  Edit
+                                </button>
+                                <button
+                                  onClick={() => confirmDelete(item.id)}
+                                  className="px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded"
+                                >
+                                  Delete
+                                </button>
+                              </>
                             )}
                           </div>
                         </td>

@@ -11,6 +11,7 @@ import BankingDetails from "../pages/BankingDetails";
 import BranchSelection from "../pages/BranchSelection";
 import Declaration from "../pages/Declaration";
 import Logo from "../assets/spacebucks submark.png";
+import { Link } from 'react-router-dom';
 
 const FormSteps = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -219,18 +220,14 @@ const FormSteps = () => {
 
   return (
     <div
-      className="min-h-screen bg-gray-900 text-gray-200"
-      style={{
-        background: `radial-gradient(
-          at ${position.x}% ${position.y}%,
-          rgb(214, 210, 233),
-          rgb(238, 225, 225)
-        )`
-      }}
+      className="min-h-screen bg-gray-200 text-gray-200"
+      
     >
       {/* Logo */}
       <div className="flex items-center space-x-2 justify-center p-4">
-        <a href="/"><img src={Logo} alt='logo' className="w-32 "/></a>
+      <Link to="/">
+  <img src={Logo} alt="logo" className="w-32" />
+</Link>
       </div>
 
       {/* Progress Bar */}

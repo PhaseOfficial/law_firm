@@ -128,57 +128,76 @@ const AdminPage = () => {
         {loading ? (
           <p>Loading...</p>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="min-w-full bg-white border border-gray-300">
-              <thead>
-                <tr>
-                  {getTableColumns().map((column) => (
-                    <th key={column} className="px-4 py-2 border">
-                      {column}
-                    </th>
-                  ))}
-                  <th className="px-4 py-2 border">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tables[currentTable]?.map((item) => (
-                  <tr key={item.id}>
-                    {getTableColumns().map((column) => (
-                      <td key={column} className="px-4 py-2 border">
-                        {editId === item.id ? (
-                          <input
-                            type="text"
-                            name={column}
-                            value={editForm[column] || ""}
-                            onChange={handleInputChange}
-                            className="w-full p-1 border rounded"
-                          />
-                        ) : (
-                          item[column]
-                        )}
-                      </td>
+          <div className="sm:px-6 w-full">
+            <div className="bg-white py-4 md:py-7 px-4 md:px-8 xl:px-10">
+              <div className="mt-7 overflow-x-auto">
+                <table className="w-full whitespace-nowrap">
+                  <thead>
+                    <tr className="h-16 border border-gray-100 rounded">
+                      {getTableColumns().map((column) => (
+                        <th
+                          key={column}
+                          className="text-left pl-5 text-base font-medium leading-none text-gray-700"
+                        >
+                          {column}
+                        </th>
+                      ))}
+                      <th className="text-left pl-5 text-base font-medium leading-none text-gray-700">
+                        Actions
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tables[currentTable]?.map((item) => (
+                      <tr
+                        key={item.id}
+                        tabIndex="0"
+                        className="focus:outline-none h-16 border border-gray-100 rounded"
+                      >
+                        {getTableColumns().map((column) => (
+                          <td key={column} className="pl-5">
+                            <div className="flex items-center">
+                              {editId === item.id ? (
+                                <input
+                                  type="text"
+                                  name={column}
+                                  value={editForm[column] || ""}
+                                  onChange={handleInputChange}
+                                  className="w-full p-1 border rounded"
+                                />
+                              ) : (
+                                <p className="text-base font-medium leading-none text-gray-700">
+                                  {item[column]}
+                                </p>
+                              )}
+                            </div>
+                          </td>
+                        ))}
+                        <td className="pl-5">
+                          <div className="flex items-center">
+                            {editId === item.id ? (
+                              <button
+                                onClick={() => handleSave(item.id)}
+                                className="px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded"
+                              >
+                                Save
+                              </button>
+                            ) : (
+                              <button
+                                onClick={() => handleEdit(item.id)}
+                                className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded"
+                              >
+                                Edit
+                              </button>
+                            )}
+                          </div>
+                        </td>
+                      </tr>
                     ))}
-                    <td className="px-4 py-2 border">
-                      {editId === item.id ? (
-                        <button
-                          onClick={() => handleSave(item.id)}
-                          className="px-2 py-1 bg-green-500 hover:bg-green-600 text-white rounded"
-                        >
-                          Save
-                        </button>
-                      ) : (
-                        <button
-                          onClick={() => handleEdit(item.id)}
-                          className="px-2 py-1 bg-blue-500 hover:bg-blue-600 text-white rounded"
-                        >
-                          Edit
-                        </button>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         )}
       </main>
